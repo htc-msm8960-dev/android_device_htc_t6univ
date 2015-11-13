@@ -8,8 +8,8 @@ LOCAL_CFLAGS := \
     -Wall \
     -DANDROID_TARGET=\"$(TARGET_BOARD_PLATFORM)\"
 
-LOCAL_SRC_FILES := init_m7univ.c
+LOCAL_SRC_FILES := init_t6univ.c
 
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := libinit_m7univ
+LOCAL_MODULE := libinit_t6univ
 include $(BUILD_STATIC_LIBRARY)

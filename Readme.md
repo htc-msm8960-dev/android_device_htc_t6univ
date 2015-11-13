@@ -1,9 +1,9 @@
-**TWRP - HTC One (Universal)**
+**TWRP - HTC One Max (Universal)**
 
-This is a recovery-only device tree for the HTC One (m7att / m7tmo / m7ul / m7wls / m7wlv).
+This is a recovery-only device tree for the HTC One Max (t6ul / t6wl / t6whl / t6dug).
 
 **Quick build instructions:**
 
     . build/envsetup.sh
-    lunch cm_m7univ-eng
+    lunch cm_t6univ-eng
     mka recoveryimage

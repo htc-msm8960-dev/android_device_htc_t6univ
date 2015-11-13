@@ -45,14 +45,17 @@ void vendor_load_properties() {
 
     property_get("ro.boot.mid", bootmid);
 
-    if (strstr(bootmid, "PN0720000")) {
-        property_set("ro.product.device", "m7wls");
-        property_set("ro.build.product", "m7wls");
-    } else if (strstr(bootmid, "PN0731000")) {
-        property_set("ro.product.device", "m7wlv");
-        property_set("ro.build.product", "m7wlv");
+    if (strstr(bootmid, "0P3P70000")) {
+        property_set("ro.product.device", "t6whl");
+        property_set("ro.build.product", "t6whl");
+    } else if (strstr(bootmid, "0P3P10000")) {
+        property_set("ro.product.device", "t6wl");
+        property_set("ro.build.product", "t6wl");
+    } else if (strstr(bootmid, "0P3P20000")) {
+        property_set("ro.product.device", "t6dug");
+        property_set("ro.build.product", "t6dug");
     } else {
-        property_set("ro.product.device", "m7");
-        property_set("ro.build.product", "m7");
+        property_set("ro.product.device", "t6");
+        property_set("ro.build.product", "t6");
     }
 }

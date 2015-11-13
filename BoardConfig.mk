@@ -20,7 +20,7 @@ USE_CAMERA_STUB := true
 -include vendor/htc/m7univ/BoardConfigVendor.mk
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := m7
+TARGET_BOOTLOADER_BOARD_NAME := t6
 TARGET_NO_BOOTLOADER := true
 
 # Platform
@@ -41,7 +41,7 @@ BOARD_KERNEL_BASE := 0x80600000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
-TARGET_KERNEL_CONFIG := m7_defconfig
+TARGET_KERNEL_CONFIG := t6_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/msm8960
 
 # QCOM hardware
@@ -56,7 +56,7 @@ USE_OPENGL_RENDERER := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
-BOARD_EGL_CFG := device/htc/m7univ/configs/egl.cfg
+BOARD_EGL_CFG := device/htc/t6univ/configs/egl.cfg
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Power
@@ -66,8 +66,8 @@ TARGET_POWERHAL_VARIANT := qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1946156032
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 27917287424
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2550136832
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 26843545600
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Recovery
@@ -82,7 +82,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += device/htc/m7univ/sepolicy
+BOARD_SEPOLICY_DIRS += device/htc/t6univ/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     akmd.te \
@@ -90,8 +90,8 @@ BOARD_SEPOLICY_UNION += \
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_m7univ
-TARGET_LIBINIT_DEFINES_FILE := device/htc/m7univ/init/init_m7univ.c
+TARGET_INIT_VENDOR_LIB := libinit_t6univ
+TARGET_LIBINIT_DEFINES_FILE := device/htc/t6univ/init/init_t6univ.c
 
 # TWRP
 TW_THEME := portrait_hdpi
@@ -101,9 +101,7 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_INCLUDE_CRYPTO := true
 BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
 RECOVERY_VARIANT := twrp
-TARGET_RECOVERY_DEVICE_MODULES := chargeled libinit_m7univ
+TARGET_RECOVERY_DEVICE_MODULES := chargeled libinit_t6univ
 RECOVERY_SDCARD_ON_DATA := true
-BOARD_HAS_NO_REAL_SDCARD := true
-TW_NO_USB_STORAGE := true
 TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
