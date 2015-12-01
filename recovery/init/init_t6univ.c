@@ -52,6 +52,9 @@ void vendor_load_properties() {
         property_set("ro.product.device", "t6wl");
         property_set("ro.build.product", "t6wl");
     } else if (strstr(bootmid, "0P3P20000")) {
+        property_set("ro.product.device", "t6dwg");
+        property_set("ro.build.product", "t6dwg");
+    } else if (strstr(bootmid, "0P3P30000")) {
         property_set("ro.product.device", "t6dug");
         property_set("ro.build.product", "t6dug");
     } else {
