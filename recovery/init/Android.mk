@@ -8,7 +8,7 @@ LOCAL_CFLAGS := \
     -Wall \
     -DANDROID_TARGET=\"$(TARGET_BOARD_PLATFORM)\"
 
-LOCAL_SRC_FILES := init_t6univ.c
+LOCAL_SRC_FILES := init_t6univ.cpp
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libinit_t6univ

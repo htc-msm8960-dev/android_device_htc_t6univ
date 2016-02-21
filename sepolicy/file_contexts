@@ -24,9 +24,9 @@
 
 # Modem
 /dev/block/mmcblk0p17           u:object_r:modem_efs_partition_device:s0
-/dev/block/mmcblk0p20           u:object_r:modem_efs_partition_device:s0
-/dev/block/mmcblk0p21           u:object_r:modem_efs_partition_device:s0
-/dev/block/mmcblk0p28           u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p22           u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p23           u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p30           u:object_r:modem_efs_partition_device:s0
 /dev/ttyUSB0                    u:object_r:radio_device:s0
 
 # Mpdecision
@@ -40,6 +40,3 @@
 /dev/cm3602                     u:object_r:sensors_device:s0
 /dev/lightsensor                u:object_r:sensors_device:s0
 /system/bin/akmd                u:object_r:akmd_exec:s0
-
-# Timer
-/dev/timerirq                   u:object_r:timerirq_device:s0
