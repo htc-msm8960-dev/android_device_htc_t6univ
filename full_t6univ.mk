@@ -14,14 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/htc/t6univ/full_t6univ.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit CM full phone configuration
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit from t6univ device
+$(call inherit-product, device/htc/t6univ/device.mk)
 
-# Device naming
-PRODUCT_NAME := cm_t6univ
-
-# Override build props
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=t6univ
+# Set those variables here to overwrite the inherited values.
+PRODUCT_BRAND := htc
+PRODUCT_DEVICE := t6univ
+PRODUCT_MANUFACTURER := HTC
+PRODUCT_MODEL := One Max
+PRODUCT_NAME := full_t6univ
