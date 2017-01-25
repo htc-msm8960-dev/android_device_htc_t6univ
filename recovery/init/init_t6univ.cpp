@@ -30,33 +30,35 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <stdlib.h>
+#include <string.h>
+
 #include "property_service.h"
 #include "vendor_init.h"
 
 void vendor_load_properties() {
-    char platform[PROP_VALUE_MAX];
-    char bootmid[PROP_VALUE_MAX];
-    int rc;
+    std::string platform;
+    std::string bootmid;
 
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || strncmp(platform, ANDROID_TARGET, PROP_VALUE_MAX))
+    platform = property_get("ro.board.platform");
+    if (platform != ANDROID_TARGET)
         return;
 
-    property_get("ro.boot.mid", bootmid);
+    bootmid = property_get("ro.boot.mid");
 
-    if (strstr(bootmid, "0P3P70000")) {
+    if (bootmid == "0P3P70000") {
         property_set("ro.product.device", "t6whl");
         property_set("ro.build.product", "t6whl");
-    } else if (strstr(bootmid, "0P3P10000")) {
+    } else if (bootmid == "0P3P10000") {
         property_set("ro.product.device", "t6wl");
         property_set("ro.build.product", "t6wl");
-    } else if (strstr(bootmid, "0P3P20000")) {
+    } else if (bootmid == "0P3P20000") {
         property_set("ro.product.device", "t6dwg");
         property_set("ro.build.product", "t6dwg");
-    } else if (strstr(bootmid, "0P3P30000")) {
+    } else if (bootmid == "0P3P30000") {
         property_set("ro.product.device", "t6dug");
         property_set("ro.build.product", "t6dug");
-    } else if (strstr(bootmid, "0P3P40000")) {
+    } else if (bootmid == "0P3P40000") {
         property_set("ro.product.device", "t6tl");
         property_set("ro.build.product", "t6tl");
     } else {
