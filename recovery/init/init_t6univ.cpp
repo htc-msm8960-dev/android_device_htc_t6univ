@@ -28,35 +28,30 @@
  */
 
 #include <stdlib.h>
-#include <string.h>
+#include <string>
 
 #include "property_service.h"
 #include "vendor_init.h"
 
 void vendor_load_properties() {
-    char platform[PROP_VALUE_MAX];
-    char bootmid[PROP_VALUE_MAX];
-    int rc;
-
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || strncmp(platform, ANDROID_TARGET, PROP_VALUE_MAX))
+    std::string platform = property_get("ro.board.platform");
+    if (platform != ANDROID_TARGET)
         return;
 
-    property_get("ro.boot.mid", bootmid);
-
-    if (strstr(bootmid, "0P3P70000")) {
+    std::string bootmid = property_get("ro.boot.mid");
+    if (bootmid.find("0P3P70000") != std::string::npos) {
         property_set("ro.product.device", "t6whl");
         property_set("ro.build.product", "t6whl");
-    } else if (strstr(bootmid, "0P3P10000")) {
+    } else if (bootmid.find("0P3P10000") != std::string::npos) {
         property_set("ro.product.device", "t6wl");
         property_set("ro.build.product", "t6wl");
-    } else if (strstr(bootmid, "0P3P20000")) {
+    } else if (bootmid.find("0P3P20000") != std::string::npos) {
         property_set("ro.product.device", "t6dwg");
         property_set("ro.build.product", "t6dwg");
-    } else if (strstr(bootmid, "0P3P30000")) {
+    } else if (bootmid.find("0P3P30000") != std::string::npos) {
         property_set("ro.product.device", "t6dug");
         property_set("ro.build.product", "t6dug");
-    } else if (strstr(bootmid, "0P3P40000")) {
+    } else if (bootmid.find("0P3P40000") != std::string::npos) {
         property_set("ro.product.device", "t6tl");
         property_set("ro.build.product", "t6tl");
     } else {
