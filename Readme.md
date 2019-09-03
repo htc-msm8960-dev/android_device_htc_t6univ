@@ -5,5 +5,5 @@ This is a recovery-only device tree for the HTC One Max (t6att / t6tmo / t6ul / 
 **Quick build instructions:**
 
     . build/envsetup.sh
-    lunch cm_t6univ-eng
+    lunch omni_t6univ-eng
     mka recoveryimage

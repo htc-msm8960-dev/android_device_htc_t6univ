@@ -14,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-USE_CAMERA_STUB := true
-
 # inherit from the proprietary version
 -include vendor/htc/t6univ/BoardConfigVendor.mk
 
@@ -25,7 +23,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8960
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno320
 
 # Architecture
 TARGET_ARCH := arm
@@ -43,24 +41,14 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
 TARGET_KERNEL_CONFIG := t6_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/msm8960
+BOARD_KERNEL_IMAGE_NAME := zImage
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
 # Flags
 BOARD_NO_SECURE_DISCARD := true
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-
-# Graphics
-USE_OPENGL_RENDERER := true
-TARGET_DISPLAY_USE_RETIRE_FENCE := true
-TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_ION := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-
-# Power
-TARGET_POWERHAL_VARIANT := qcom
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -84,11 +72,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += device/htc/t6univ/sepolicy
-
-# Vendor Init
-TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_t6univ
+#BOARD_SEPOLICY_DIRS += device/htc/t6univ/sepolicy
 
 # TWRP
 RECOVERY_SDCARD_ON_DATA := true
@@ -97,3 +81,4 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_NTFS_3G := true
 TW_TARGET_USES_QCOM_BSP := true
 TW_THEME := portrait_hdpi
+LZMA_RAMDISK_TARGETS := boot,recovery

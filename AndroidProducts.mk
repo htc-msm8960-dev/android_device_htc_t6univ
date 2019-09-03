@@ -1,6 +1,5 @@
-# Copyright (C) 2016 Matthew D. Mower
-# Copyright (C) 2013 The CyanogenMod Project
-# Copyright (C) 2012 The Android Open-Source Project
+#
+# Copyright 2012 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,15 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-$(call inherit-product, device/htc/t6univ/full_t6univ.mk)
-
-# Inherit CM full phone configuration
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
-
-# Device naming
-PRODUCT_NAME := cm_t6univ
-
-# Override build props
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=t6univ
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/omni_t6univ.mk

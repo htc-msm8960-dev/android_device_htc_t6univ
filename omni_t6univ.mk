@@ -14,18 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+# Sample: This is where we'd set a backup provider if we had one
+# $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/htc/t6univ/t6univ-vendor.mk)
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/cdma.mk)
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += device/htc/t6univ/overlay
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Screen density
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
+PRODUCT_NAME := omni_t6univ
+PRODUCT_DEVICE := t6univ
+PRODUCT_BRAND := htc
+PRODUCT_MODEL := One Max
+PRODUCT_MANUFACTURER := HTC
